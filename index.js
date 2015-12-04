@@ -11,7 +11,8 @@ var optimist = require('optimist')
 	'o': 'output-file',
 	'w': 'watch',
 	'v': 'version',
-	'd': 'document-mode'
+	'd': 'document-mode',
+        'e': 'embed-images'        
 })
 .describe({
 	'title': 'Generated page title',
@@ -22,11 +23,13 @@ var optimist = require('optimist')
 	'output-file': 'Path to output file (stdout if not specified)',
 	'document-mode': 'Generate slides from a document without slide separators (---) or annotations',
 	'watch': 'Watch mode',
-	'level': 'Heading level to use as new slides (for example 3 is ###)'
+	'level': 'Heading level to use as new slides (for example 3 is ###)',
+        'embed-images': 'Embeds images in the resulting file by converting them to bas64'
 })
 .boolean('watch')
 .boolean('document-mode')
 .boolean('version')
+.boolean('embed-images')
 .default({
 	'style': path.resolve(templateDir + '/style.css'),
 	'template': path.resolve(templateDir + '/template.html'),
